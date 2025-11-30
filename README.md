@@ -9,7 +9,7 @@ A concise cheat sheet for statistical tools commonly used in behavioral and syst
 - Fleiss’ kappa  
 - Effect sizes in behavioral neuroscience  
 
-Useful for quick recall while analyzing rodent behavior, paw preference, chemogenetics, lesion models, or neuroanatomical data.
+Useful for quick recall while analyzing data. 
 
 ---
 
@@ -30,7 +30,7 @@ t-tests compare group means. Common variants relevant to neuroscience:
 ---
 
 ### **1.1 One-sample t-test**  
-> Compare a sample mean to a known value (e.g., chance level 0.5 in paw preference tests).
+> Compare a sample mean to a known value (e.g., chance level 0.5 in tests).
 
 - **Null hypothesis (H₀):**  
   \( \mu = \mu_0 \)
@@ -44,7 +44,7 @@ $$
 ---
 
 ### **1.2 Paired t-test**  
-> Same animals measured twice (e.g., pre/post-lesion, vehicle vs CNO).
+> Same animals measured twice. 
 
 Compute differences:
 
@@ -57,7 +57,7 @@ Then perform a one-sample t-test on the vector \( d \).
 ---
 
 ### **1.3 Independent (two-sample) t-test**  
-> Compare two independent groups (e.g., left-dominant vs right-dominant rats).
+> Compare two independent groups. 
 
 #### **Equal variances (Student’s t-test):**
 
@@ -84,5 +84,5 @@ Default in R and Python; more robust unless sample variances are identical.
 ### **1.4 Quick R example**
 
 ```r
-# Independent t-test: LI in left- vs right-dominant rats
+# Independent t-test: 
 t.test(LI ~ group, data = df, var.equal = FALSE)
