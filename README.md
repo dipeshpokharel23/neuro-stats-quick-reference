@@ -1,7 +1,7 @@
 # Neuro Stats Quick Reference 📊  
 **Author:** Dipesh Pokharel  
 
-A concise cheat sheet for common statistical tools used in behavioral and systems neuroscience, with a focus on:
+A concise cheat sheet for statistical tools commonly used in behavioral and systems neuroscience, with a focus on:
 
 - t-tests  
 - ANOVA  
@@ -9,44 +9,79 @@ A concise cheat sheet for common statistical tools used in behavioral and system
 - Fleiss’ kappa  
 - Effect sizes in behavioral neuroscience  
 
-Useful for quick recall while analyzing rodent behavior, paw preference, chemogenetic experiments, and neuroanatomical data.
+Useful for quick recall while analyzing rodent behavior, paw preference, chemogenetics, lesion models, or neuroanatomical data.
+
+---
+
+# 📚 Table of Contents
+1. [t-tests](#1-t-tests)  
+2. [ANOVA](#2-anova)  
+3. [Cohen’s Kappa](#3-cohens-kappa)  
+4. [Fleiss’ Kappa](#4-fleiss-kappa)  
+5. [Effect Sizes](#5-effect-sizes-in-behavioral-neuroscience)  
+6. [Practical Tips](#6-practical-tips-for-neuroscience-data)  
 
 ---
 
 ## 1. t-tests
 
-t-tests compare means between conditions. Common variants in neuroscience:
+t-tests compare group means. Common variants relevant to neuroscience:
 
-### 1.1 One-sample t-test
-> Compare a sample mean to a known value (e.g., chance level = 0.5 for paw preference).
+---
 
-- **Null (H₀):** μ = μ₀  
-- **Test statistic:**  
-  \[
-  t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}
-  \]
+### **1.1 One-sample t-test**  
+> Compare a sample mean to a known value (e.g., chance level 0.5 in paw preference tests).
 
-### 1.2 Paired t-test
-> Same animals measured twice (e.g., pre- vs post-lesion, vehicle vs CNO in same rats).
+- **Null hypothesis (H₀):**  
+  \( \mu = \mu_0 \)
 
-- Use when: **repeated measures** on the same subject.  
-- Compute differences \( d_i = x_{1i} - x_{2i} \), then one-sample t-test on \( d \).  
+### **Test statistic (GitHub-safe LaTeX):**
 
-### 1.3 Independent (two-sample) t-test
+$$
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}
+$$
+
+---
+
+### **1.2 Paired t-test**  
+> Same animals measured twice (e.g., pre/post-lesion, vehicle vs CNO).
+
+Compute differences:
+
+$$
+d_i = x_{1i} - x_{2i}
+$$
+
+Then perform a one-sample t-test on the vector \( d \).
+
+---
+
+### **1.3 Independent (two-sample) t-test**  
 > Compare two independent groups (e.g., left-dominant vs right-dominant rats).
 
-- **Equal variances (Student):**
-  \[
-  t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
-  \]
-  where  
-  \[
-  s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}
-  \]
+#### **Equal variances (Student’s t-test):**
 
-- **Unequal variances (Welch):** default in many software; more robust.
+$$
+t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
+$$
 
-### 1.4 Quick R example
+Pooled variance:
+
+$$
+s_p^2 = 
+\frac{
+(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2
+}{
+n_1 + n_2 - 2
+}
+$$
+
+#### **Unequal variances (Welch’s t-test):**  
+Default in R and Python; more robust unless sample variances are identical.
+
+---
+
+### **1.4 Quick R example**
 
 ```r
 # Independent t-test: LI in left- vs right-dominant rats
