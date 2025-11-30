@@ -23,13 +23,13 @@ Useful for quick recall while analyzing data.
 
 ---
 
-## 1. t-tests
+1. t-tests
 
 t-tests compare group means. Common variants relevant to neuroscience:
 
 ---
 
-### **1.1 One-sample t-test**  
+1.1 One-sample t-test**  
 > Compare a sample mean to a known value (e.g., chance level 0.5 in tests).
 
 - **Null hypothesis (H₀):**  
@@ -43,7 +43,7 @@ $$
 
 ---
 
-### **1.2 Paired t-test**  
+1.2 Paired t-test**  
 > Same animals measured twice. 
 
 Compute differences:
@@ -56,7 +56,7 @@ Then perform a one-sample t-test on the vector \( d \).
 
 ---
 
-### **1.3 Independent (two-sample) t-test**  
+1.3 Independent (two-sample) t-test**  
 > Compare two independent groups. 
 
 #### **Equal variances (Student’s t-test):**
@@ -81,7 +81,7 @@ Default in R and Python; more robust unless sample variances are identical.
 
 ---
 
-### **1.4 Quick R example**
+1.4 Quick R example**
 
 ```r
 # Independent t-test: 
