@@ -1,5 +1,5 @@
 # Neuro Stats Quick Reference 📊  
-**Author:** Dipesh Pokharel  
+Dipesh Pokharel  
 
 A concise cheat sheet for statistical tools commonly used in behavioral and systems neuroscience, with a focus on:
 
